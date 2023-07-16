@@ -375,6 +375,12 @@ body a {
     align-items: center;
   }
 }
+.shows__article:hover {
+  background-color: #FAFAFA;
+}
+.shows__article:active {
+  background-color: #e1e1e1;
+}
 .shows__article p {
   margin: 1rem 0rem;
   font-size: 1.2rem;

@@ -399,6 +399,7 @@ body a {
 .conversation__title {
   font-size: 2.4rem;
   font-weight: 500;
+  margin-top: 5rem;
 }
 @media screen and (min-width: 768px) {
   .conversation__title {
@@ -505,14 +506,8 @@ body a {
   gap: 1.6rem;
   justify-content: center;
   width: 100%;
-  flex-shrink: 0;
-}
-@media screen and (min-width: 768px) {
-  .comments__card {
-    justify-content: center;
-    gap: 1.6rem;
-    margin: auto;
-  }
+  max-width: 102rem;
+  margin: auto;
 }
 .comments__image {
   width: 36px;
