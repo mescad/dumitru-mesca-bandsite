@@ -196,18 +196,6 @@ body {
 
 /*/ ///////////////////// MAIN ///////////////////////*/
 
-// .main__wrapper {
-//   @include tablet {
-//     max-width: 102rem;
-//     margin: auto;
-//   }
-
-//   @include desktop {
-//     max-width: 102rem;
-//     margin: auto;
-//   }
-// }
-
 .description {
   width: 100%;
   padding: 0rem 1.6rem;
@@ -375,20 +363,16 @@ body {
       margin-left: 3.6rem;
     }
 
-    &--wrapper{
+    &--wrapper {
       display: flex;
       justify-content: flex-start;
       width: 100%;
 
-      
-      @include tablet{
+      @include tablet {
         max-width: 102rem;
         margin: auto;
-       
       }
     }
-
-
   }
 
   &__wrapper {
@@ -406,7 +390,6 @@ body {
       padding: 0rem 3.6rem;
       max-width: 102rem;
       margin: auto;
-      
     }
 
     @include desktop {
@@ -424,34 +407,28 @@ body {
 }
 
 /*/////////////////////FORM//////////////////////*/
-.conversation{
+.conversation {
   padding: 0rem 1.6rem;
   margin: 1.6rem 0rem;
-  
 
-  @include tablet{
+  @include tablet {
     max-width: 102rem;
     padding: 0rem 3.6rem;
     margin: auto;
   }
 
-  &__title{
+  &__title {
     font-size: 2.4rem;
     font-weight: 500;
-    
 
-    @include tablet{
-      font-size:3.6rem
+    @include tablet {
+      font-size: 3.6rem;
     }
   }
 }
 
-
-
-.form{
-
-
-  &__icon{
+.form {
+  &__icon {
     width: 3.6rem;
     height: 3.6rem;
     border-radius: 50%;
@@ -460,85 +437,79 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    
 
-    @include tablet{
+    @include tablet {
       width: 4.8rem;
       height: 4.8rem;
       margin-top: 2rem;
     }
   }
 
-  &__wrapper{
+  &__wrapper {
     display: flex;
     gap: 1.6rem;
-    
+
     width: 100%;
     border-bottom: 0.1rem solid $secondary-mercury;
     margin-bottom: 2rem;
 
-    @include tablet{
+    @include tablet {
       justify-content: center;
-      
+
       width: 90%;
       margin: auto;
-      
     }
-    
-    @include desktop{
+
+    @include desktop {
       width: 55%;
     }
-    
   }
 
-  &__body{
+  &__body {
     display: flex;
     flex-direction: column;
     width: 80%;
   }
 
-
-  &__group{
+  &__group {
     display: flex;
     flex-direction: column;
     padding-bottom: 1.6rem;
   }
 
-  &__label{
+  &__label {
     font-size: 1rem;
     color: $primary-silver;
     font-weight: 400;
     padding-bottom: 0.5rem;
-
   }
 
-  &__input{
+  &__input {
     height: 5rem;
     background-color: $secondary-alabaster;
     border: 0.1rem solid $secondary-mercury;
     border-radius: 0.5rem;
 
-    &::placeholder{
+    &::placeholder {
       font-family: "AvenirNextLTPro";
       padding-left: 1rem;
     }
 
-    &--modified{
+    &--modified {
       height: 10rem;
       padding-top: 1rem;
     }
   }
 
-  &__button{
+  &__button {
     padding: 1rem 2rem;
     font-weight: 500;
     background-color: $primary-blackside;
     color: $primary-white;
     border-radius: 0.5rem;
     border: none;
-   
 
-    @include tablet{
+    @include tablet {
       width: 13rem;
       align-self: flex-end;
 
@@ -547,20 +518,7 @@ body {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*////////// COMMENTS ///////////////////////////*/
-
 
 .comments {
   display: flex;
@@ -568,95 +526,74 @@ body {
   width: 100%;
   margin-top: 2rem;
 
-
-&__card{
-  display: flex;
-  flex-direction: row;
-  gap: 1.6rem;
-  justify-content: center;
-  width: 100%;
-  flex-shrink:0;
-
-  @include tablet{
+  &__card {
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
     justify-content: center;
-    gap:1.6rem;
-    margin: auto
-  }
-}
+    width: 100%;
+    flex-shrink: 0;
 
-  &__image{
+    @include tablet {
+      justify-content: center;
+      gap: 1.6rem;
+      margin: auto;
+    }
+  }
+
+  &__image {
     width: 36px;
     height: 36px;
     background-color: $secondary-mercury;
     border-radius: 50%;
-    
-    @include tablet{
+
+    @include tablet {
       width: 4.8rem;
       height: 4.8rem;
     }
-    
-    
   }
 
-
-  &__wrapper{
+  &__wrapper {
     width: 80%;
 
-    @include tablet{
+    @include tablet {
       width: 72%;
     }
-    @include desktop{
+    @include desktop {
       width: 44%;
     }
-
   }
 
-  &__card{
+  &__card {
     border-bottom: 0.1rem solid $secondary-mercury;
-    
+
     margin-bottom: 2rem;
   }
-  &__top{
+  &__top {
     display: flex;
     justify-content: space-between;
   }
 
-  &__name{
+  &__name {
     font-size: 1.3rem;
     margin: 0;
-   
-    font-weight: 500;
 
+    font-weight: 500;
   }
 
-  &__date{
+  &__date {
     font-size: 1.3rem;
     padding: 0;
     margin: 0;
-    
+
     font-weight: 300;
     color: $primary-silver;
   }
 
-  &__text{
+  &__text {
     font-size: 1.2rem;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* //////////////////// FOOTER////////////////////*/
 

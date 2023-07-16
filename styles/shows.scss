@@ -146,11 +146,6 @@ body {
 
 .hero {
   width: 100%;
-  // position: relative;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: flex-start;
-  // align-items: flex-start;
 
   background-image: linear-gradient(
       to bottom,
@@ -162,8 +157,6 @@ body {
 
   @include tablet {
     height: 44rem;
-    // justify-content: center;
-    // align-items: center;
   }
 
   @include desktop {
@@ -307,19 +300,6 @@ body {
         display: none;
       }
     }
-
-    // &--venue-modified,
-    // &--location-modified,
-    // &--date-modified {
-    //   @include tablet {
-    //     display: flex;
-    //     margin-bottom: 3rem;
-    //   }
-
-    //   @include desktop {
-    //     margin-bottom: 6rem;
-    //   }
-    // }
   }
 
   &__wrapper {
@@ -382,43 +362,15 @@ body {
   }
 }
 
-// .shows__title--venue,
-// .shows__title--location,
-// .shows__title--date{
-//   font-size: 1.1rem;
-//   color: $primary-silver;
-//   font-weight: 500;
-
-//   @include tablet{
-//     display: none;
-//   }
-// }
-
-// .shows__article{
-//   &__title{
-//     &--venue-modified, &--location-modified, &--date-modified{
-//       @include tablet{
-//         display: flex;
-//         margin-bottom: 3rem;
-//       }
-
-//       @include desktop{
-//         margin-bottom: 5rem;
-//       }
-
-//     }
-//   }
-// }
-
 .shows__article .shows__title--venue-modified,
 .shows__article .shows__title--location-modified,
-.shows__article .shows__title--date-modified{
-  @include tablet{
+.shows__article .shows__title--date-modified {
+  @include tablet {
     display: flex;
     margin-bottom: 3rem;
   }
 
-  @include desktop{
+  @include desktop {
     margin-bottom: 5rem;
   }
 }
