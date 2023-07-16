@@ -460,18 +460,34 @@ body a {
   padding-bottom: 0.5rem;
 }
 .form__input {
-  height: 5rem;
+  height: 3.6rem;
   background-color: #FAFAFA;
   border: 0.1rem solid #e1e1e1;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
+}
+.form__input:active {
+  border: 0.1rem solid #323232;
+}
+@media screen and (min-width: 768px) {
+  .form__input {
+    height: 4.8rem;
+  }
 }
 .form__input::-moz-placeholder {
   font-family: "AvenirNextLTPro";
-  padding-left: 1rem;
+  padding-left: 1.2rem;
 }
 .form__input::placeholder {
   font-family: "AvenirNextLTPro";
-  padding-left: 1rem;
+  padding-left: 1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .form__input::-moz-placeholder {
+    padding-left: 1.6rem;
+  }
+  .form__input::placeholder {
+    padding-left: 1.6rem;
+  }
 }
 .form__input--modified {
   height: 10rem;

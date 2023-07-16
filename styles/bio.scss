@@ -485,14 +485,26 @@ body {
   }
 
   &__input {
-    height: 5rem;
+    height: 3.6rem;
     background-color: $secondary-alabaster;
     border: 0.1rem solid $secondary-mercury;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
+
+    &:active{
+      border: 0.1rem solid $primary-blackside;
+    }
+
+    @include tablet{
+      height: 4.8rem;
+    }
 
     &::placeholder {
       font-family: "AvenirNextLTPro";
-      padding-left: 1rem;
+      padding-left: 1.2rem;
+
+      @include tablet{
+        padding-left: 1.6rem;
+      }
     }
 
     &--modified {
