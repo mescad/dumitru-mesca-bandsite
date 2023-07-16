@@ -337,12 +337,10 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  // padding: 0rem 1.6rem;
+
   background-color: $secondary-alabaster;
-  // margin-bottom: 1rem;
 
   @include tablet {
-    // padding: 0rem 3.6rem;
   }
 
   @include desktop {
@@ -350,7 +348,8 @@ body {
 
   &__title {
     margin: 0;
-
+    margin-left: 1.6rem;
+    
     font-size: 2.4rem;
     font-weight: 500;
     padding-top: 2.4rem;
