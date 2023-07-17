@@ -2,19 +2,19 @@
 /*///////// HOVER COLORS ////////////////////*/
 @font-face {
   font-family: "AvenirNextLTPro";
-  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype");
+  src: url("../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: bold;
 }
 @font-face {
   font-family: "AvenirNextLTPro";
-  src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype");
+  src: url("../assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "AvenirNextLTPro";
-  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype");
+  src: url("../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -144,9 +144,15 @@ body a {
     border-bottom: solid white 0.3rem;
   }
 }
+.nav__item--shows {
+  border-bottom: solid #323232 0.2rem;
+  border-bottom-width: 100%;
+}
 @media screen and (min-width: 768px) {
   .nav__item--shows {
     padding-bottom: 2rem;
+    border-bottom: solid #323232 0.3rem;
+    border-bottom-width: 100%;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -377,11 +383,15 @@ body a {
 .gallery__image {
   padding: 0.8rem 0rem;
   max-width: 100%;
+  filter: grayscale(100%);
 }
 @media screen and (min-width: 768px) {
   .gallery__image {
     padding: 0;
   }
+}
+.gallery__image:hover {
+  filter: none;
 }
 
 /*/////////////////////FORM//////////////////////*/

@@ -26,12 +26,6 @@ body {
   width: 100%;
   background-color: $primary-blackside;
 
-  @include tablet {
-  }
-
-  @include desktop {
-  }
-
   &__wrapper {
     @include tablet {
       display: flex;
@@ -64,9 +58,6 @@ body {
       align-items: center;
       width: auto;
       height: auto;
-    }
-
-    @include desktop {
     }
   }
 
@@ -101,7 +92,7 @@ body {
   &__item {
     list-style: none;
     width: 100%;
-    color: $primary-silver;
+    color: $primary-dark;
     font-size: 1.4rem;
     line-height: 2.2rem;
     padding-bottom: 1rem;
@@ -122,7 +113,7 @@ body {
     &--bio {
       border-bottom: solid white 0.2rem;
       border-bottom-width: 100%;
-      color: $primary-white;
+      color: $primary-light;
 
       @include tablet {
         border-bottom: solid white 0.3rem;
@@ -130,8 +121,12 @@ body {
     }
 
     &--shows {
+      border-bottom: solid $primary-blackside 0.2rem;
+      border-bottom-width: 100%;
       @include tablet {
         padding-bottom: 2rem;
+        border-bottom: solid $primary-blackside 0.3rem;
+        border-bottom-width: 100%;
       }
       @include desktop {
         padding-bottom: 4rem;
@@ -141,7 +136,7 @@ body {
     &--shows:hover {
       border-bottom: solid #afafaf 0.2rem;
       border-bottom-width: 100%;
-      color: $primary-silver;
+      color: $primary-dark;
 
       @include tablet {
         border-bottom: solid #afafaf 0.3rem;
@@ -178,7 +173,7 @@ body {
 
   &__title {
     font-size: 2.4rem;
-    color: $primary-white;
+    color: $primary-light;
     position: absolute;
     font-weight: 500;
     left: 10%;
@@ -212,11 +207,6 @@ body {
 
   &__picture {
     width: 100%;
-
-    @include tablet {
-    }
-    @include desktop {
-    }
   }
 
   &__title {
@@ -337,19 +327,12 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  background-color: $secondary-alabaster;
-
-  @include tablet {
-  }
-
-  @include desktop {
-  }
+  background-color: $secondary-hover;
 
   &__title {
     margin: 0;
     margin-left: 1.6rem;
-    
+
     font-size: 2.4rem;
     font-weight: 500;
     padding-top: 2.4rem;
@@ -390,17 +373,19 @@ body {
       max-width: 102rem;
       margin: auto;
     }
-
-    @include desktop {
-    }
   }
 
   &__image {
     padding: 0.8rem 0rem;
     max-width: 100%;
+    filter: grayscale(100%);
 
     @include tablet {
       padding: 0;
+    }
+
+    &:hover {
+      filter: none;
     }
   }
 }
@@ -450,7 +435,7 @@ body {
     gap: 1.6rem;
 
     width: 100%;
-    border-bottom: 0.1rem solid $secondary-mercury;
+    border-bottom: 0.1rem solid $secondary-selected;
     margin-bottom: 2rem;
 
     @include tablet {
@@ -479,22 +464,22 @@ body {
 
   &__label {
     font-size: 1rem;
-    color: $primary-silver;
+    color: $primary-dark;
     font-weight: 400;
     padding-bottom: 0.5rem;
   }
 
   &__input {
     height: 3.6rem;
-    background-color: $secondary-alabaster;
-    border: 0.1rem solid $secondary-mercury;
+    background-color: $secondary-hover;
+    border: 0.1rem solid $secondary-selected;
     border-radius: 0.4rem;
 
-    &:active{
+    &:active {
       border: 0.1rem solid $primary-blackside;
     }
 
-    @include tablet{
+    @include tablet {
       height: 4.8rem;
     }
 
@@ -502,7 +487,7 @@ body {
       font-family: "AvenirNextLTPro";
       padding-left: 1.2rem;
 
-      @include tablet{
+      @include tablet {
         padding-left: 1.6rem;
       }
     }
@@ -517,7 +502,7 @@ body {
     padding: 1rem 2rem;
     font-weight: 500;
     background-color: $primary-blackside;
-    color: $primary-white;
+    color: $primary-light;
     border-radius: 0.5rem;
     border: none;
 
@@ -546,19 +531,12 @@ body {
     width: 100%;
     max-width: 102rem;
     margin: auto;
-    
-
-    @include tablet {
-      
-      
-     
-    }
   }
 
   &__image {
     width: 36px;
     height: 36px;
-    background-color: $secondary-mercury;
+    background-color: $secondary-selected;
     border-radius: 50%;
 
     @include tablet {
@@ -569,7 +547,6 @@ body {
 
   &__wrapper {
     width: 80%;
-    
 
     @include tablet {
       width: 72%;
@@ -580,7 +557,7 @@ body {
   }
 
   &__card {
-    border-bottom: 0.1rem solid $secondary-mercury;
+    border-bottom: 0.1rem solid $secondary-selected;
 
     margin-bottom: 2rem;
   }
@@ -602,7 +579,7 @@ body {
     margin: 0;
 
     font-weight: 300;
-    color: $primary-silver;
+    color: $primary-dark;
   }
 
   &__text {
@@ -614,7 +591,7 @@ body {
 
 .footer {
   background-color: $primary-blackside;
-  color: $primary-white;
+  color: $primary-light;
 
   font-size: 1.3rem;
   line-height: 1.8rem;
@@ -683,9 +660,6 @@ body {
   &__logo {
     width: 2.5rem;
     height: 2.5rem;
-
-    @include tablet {
-    }
   }
 
   /*////////////////// FOOTER CARDS (MIDDLE)//////////////*/

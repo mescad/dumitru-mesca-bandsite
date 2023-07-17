@@ -81,30 +81,37 @@ body {
     flex-direction: row;
     justify-content: space-around;
     padding: 0;
-    margin: 0;
+    margin-bottom: 0;
     width: 100%;
+    margin-top: 0;
+    
 
     @include tablet {
       width: auto;
       justify-content: space-evenly;
       align-items: flex-end;
       gap: 3rem;
+      margin-top: 3rem;
+    }
+    @include desktop{
+      margin-top: 0rem;
     }
   }
 
   &__item {
     list-style: none;
     width: 100%;
-    color: $primary-silver;
+    color: $primary-dark;
     font-size: 1.4rem;
     line-height: 2.2rem;
     padding-bottom: 1rem;
     display: flex;
+    margin-bottom: 0;
 
     @include tablet {
       width: auto;
       padding-bottom: 2rem;
-      margin-top: 3rem;
+      // margin-top: 3rem;
     }
 
     @include desktop {
@@ -116,7 +123,7 @@ body {
     &--shows {
       border-bottom: solid white 0.2rem;
       border-bottom-width: 100%;
-      color: $primary-white;
+      color: $primary-light;
 
       @include tablet {
         border-bottom: solid white 0.3rem;
@@ -124,18 +131,22 @@ body {
     }
 
     &--bio {
+      border-bottom: solid $primary-blackside 0.2rem;
+      border-bottom-width: 100%;
       @include tablet {
         padding-bottom: 2rem;
+        border-bottom: solid $primary-blackside 0.3rem;
       }
       @include desktop {
         padding-bottom: 4rem;
+        
       }
     }
 
     &--bio:hover {
       border-bottom: solid #afafaf 0.2rem;
       border-bottom-width: 100%;
-      color: $primary-silver;
+      color: $primary-dark;
 
       @include tablet {
         border-bottom: solid #afafaf 0.3rem;
@@ -190,7 +201,7 @@ body {
 
   &__title {
     font-size: 2.4rem;
-    color: $primary-white;
+    color: $primary-light;
     font-weight: 500;
     width: 50%;
 
@@ -208,7 +219,7 @@ body {
   }
 
   &__subtitle {
-    color: $primary-white;
+    color: $primary-light;
     font-size: 1.4rem;
     font-weight: 500;
 
@@ -218,8 +229,7 @@ body {
       margin-bottom: 2rem;
     }
 
-    @include desktop {
-    }
+   
   }
 
   &__titlewrap {
@@ -293,7 +303,7 @@ body {
     &--location,
     &--date {
       font-size: 1.1rem;
-      color: $primary-silver;
+      color: $primary-dark;
       font-weight: 500;
 
       @include tablet {
@@ -327,7 +337,7 @@ body {
   &__button {
     height: 4rem;
     background-color: $primary-blackside;
-    color: $primary-white;
+    color: $primary-light;
     font-weight: 600;
     border-radius: 0.5rem;
     border: none;
@@ -347,7 +357,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 1.6rem;
-    border-bottom: 0.1rem solid $secondary-mercury;
+    border-bottom: 0.1rem solid $secondary-selected;
 
     @include tablet {
       flex-direction: row;
@@ -356,11 +366,11 @@ body {
     }
 
     &:hover {
-      background-color: $secondary-alabaster;
+      background-color: $secondary-hover;
     }
 
     &:active {
-      background-color: $secondary-mercury;
+      background-color: $secondary-selected;
     }
     & p {
       margin: 1rem 0rem;
@@ -391,7 +401,7 @@ body {
 
 .footer {
   background-color: $primary-blackside;
-  color: $primary-white;
+  color: $primary-light;
 
   font-size: 1.3rem;
   line-height: 1.8rem;
