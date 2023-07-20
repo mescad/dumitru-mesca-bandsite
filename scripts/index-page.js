@@ -1,24 +1,23 @@
-const commentList = [
-  {
-    name: "Miles Acosta",
-    date: "12/20/2020",
-    text: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    text: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    text: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  
-];
+
+
+const getComments = () => {
+  axios
+    .get(
+      "https://project-1-api.herokuapp.com/comments?api_key=64e600a2-dc89-422e-bd7a-a1fd3d78c44c"
+    )
+    .then((response) => {
+      console.log(response.data);
+      
+      // Give the comments array from the api as a argument to the function
+      commentRender(response.data);
+    });
+};
+
+getComments();
+
+
 
 let comments = document.querySelector(".comments");
-
 
 //comment creator
 
@@ -51,29 +50,26 @@ function commentCreator(comment) {
   commentDate.classList.add("comments__date");
   commentSectionTop.appendChild(commentDate);
 
-
   const commentText = document.createElement("p");
   commentText.classList.add("comments__text");
   commentSectionBot.appendChild(commentText);
-  
 
- 
+  let dateUpdate = new Date(comment.timestamp).toLocaleDateString();
 
   commentName.textContent = comment.name;
-  commentDate.textContent = comment.date;
-  commentText.textContent = comment.text;
+  commentDate.textContent = dateUpdate;
+  commentText.textContent = comment.comment;
 
   return article;
 }
-
-
-
 
 //comment submit function
 const form = document.querySelector(".form__body");
 
 const formSubmit = (event) => {
   event.preventDefault();
+
+  console.log(event);
 
   const form = event.target;
 
@@ -84,36 +80,58 @@ const formSubmit = (event) => {
     return false;
   }
 
-  const newComment = {
-    name: form.name.value,
-    date: new Date().toLocaleDateString("en-GB"),
-    text: form.comment.value,
-  };    
 
-  commentList.push(newComment);
 
- commentRender();
-  form.reset();
+  // Sending a POST request to the api to create a new comment
+  axios
+    .post(
+      "https://project-1-api.herokuapp.com/comments?api_key=64e600a2-dc89-422e-bd7a-a1fd3d78c44c",
+      {
+        name: form.name.value,
+        comment: form.comment.value,
+      }
+    )
+    .then((result) => {
+      // At this poimt, the API has finished saving the comment in the DB
+      // and now we need to update the DOM with the new comment
+      console.log(result);
+
+      // OLD WAY: push to a variable in our code - we now have a API for the data
+      //commentList.push(newComment);
+      // commentRender(); // this function now needs the api data to work
+
+      // This function will do another GET request, with the new comment and
+      // executes commentRender inside of it, with the API data 
+      getComments();
+      form.reset();
+    });
+
+  
 };
+
 
 form.addEventListener("submit", formSubmit);
 
-
-
 // comment render function
-const commentRender = () => {
-  const commentStore = document.querySelector(".comments");
-  commentStore.innerHTML="";
 
-  for (let i = 0; i < commentList.length; i++) {
-    const comment = commentList[i];
-    const commentCard = commentCreator(comment);
+// recieve the data as a parameter
+const commentRender = (commentsArray) => {
+  const commentStore = document.querySelector(".comments");
+  commentStore.innerHTML = "";
+
+  // 1. maybe use a commentsArray.forEach() instead of a for loop
+
+  // 2. instead of prepend, we could .sort() thecommentsArray by timestamp (desc)
+
+  // e.g of both: commentsArray.sort((a, b) => ...).forEach(() => ...)
+
+// using the parameter
+commentsArray.forEach((comment,i)=>{
+  const commentCard = commentCreator(comment);
 
     commentStore.prepend(commentCard);
-  }
+})
+  
 };
-
-commentRender();
-
 
 

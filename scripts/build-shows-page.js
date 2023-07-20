@@ -1,36 +1,16 @@
 
-const showlist = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-];
+
+const getApi = ()=>{
+   axios
+   .get("https://project-1-api.herokuapp.com/showdates?api_key=64e600a2-dc89-422e-bd7a-a1fd3d78c44c").then((result)=>{
+    console.log(result);
+    showsRender(result.data)
+   }
+    
+   )
+}
+getApi()
+
 
 let shows = document.querySelector(".shows");
 
@@ -42,6 +22,8 @@ sectionHeader.textContent = "Shows";
 const sectionWrapper = document.createElement("div");
 sectionWrapper.classList.add("shows__wrapper");
 shows.appendChild(sectionWrapper);
+
+
 
 function cardCreator(date, venue, location, first) {
   const article = document.createElement("article");
@@ -91,7 +73,9 @@ function cardCreator(date, venue, location, first) {
   venueInfo.classList.add("shows__info--venue");
   locationInfo.classList.add("shows__info--location");
 
-  dateInfo.textContent = date;
+  dateUpdate= new Date(date).toLocaleDateString();
+
+  dateInfo.textContent = dateUpdate;
   venueInfo.textContent = venue;
   locationInfo.textContent = location;
 
@@ -105,7 +89,11 @@ function cardCreator(date, venue, location, first) {
   article.appendChild(button);
 }
 
-for (let i = 0; i < showlist.length; i++) {
-  const first = i === 0;
-  cardCreator(showlist[i].date, showlist[i].venue, showlist[i].location, first);
+
+const showsRender = (showsArray)=>{
+showsArray.forEach ((show, i) =>{
+        const first = i === 0;
+        cardCreator(show.date, show.place, show.location, first);
+    });
+
 }
