@@ -568,6 +568,69 @@ body a {
   display: flex;
   justify-content: space-between;
 }
+.comments__like {
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 0;
+  border: none;
+  background-color: white;
+  order: 1;
+}
+@media screen and (min-width: 768px) {
+  .comments__like {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.comments__like__icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+@media screen and (min-width: 768px) {
+  .comments__like__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.comments__delete {
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 0;
+  border: none;
+  background-color: white;
+  order: 2;
+}
+@media screen and (min-width: 768px) {
+  .comments__delete {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.comments__delete__icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+@media screen and (min-width: 768px) {
+  .comments__delete__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.comments__likecount {
+  margin: 0;
+  order: 1;
+  font-size: 1.3rem;
+}
+@media screen and (min-width: 768px) {
+  .comments__likecount {
+    font-size: 1.5rem;
+  }
+}
+.comments__likegroup {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
 .comments__name {
   font-size: 1.3rem;
   margin: 0;
@@ -577,8 +640,14 @@ body a {
   font-size: 1.3rem;
   padding: 0;
   margin: 0;
+  order: 2;
   font-weight: 300;
   color: #afafaf;
+}
+@media screen and (min-width: 768px) {
+  .comments__date {
+    order: 3;
+  }
 }
 .comments__text {
   font-size: 1.2rem;

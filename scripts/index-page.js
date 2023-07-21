@@ -1,5 +1,3 @@
-
-
 const getComments = () => {
   axios
     .get(
@@ -7,15 +5,13 @@ const getComments = () => {
     )
     .then((response) => {
       console.log(response.data);
-      
+
       // Give the comments array from the api as a argument to the function
       commentRender(response.data);
     });
 };
 
 getComments();
-
-
 
 let comments = document.querySelector(".comments");
 
@@ -54,11 +50,75 @@ function commentCreator(comment) {
   commentText.classList.add("comments__text");
   commentSectionBot.appendChild(commentText);
 
+  //////////////////////////////////////
+
+  const commentLike = document.createElement("button");
+  commentLike.classList.add("comments__like");
+
+  const likeIcon = document.createElement("img");
+  likeIcon.classList.add("comments__like__icon");
+
+  let likeCount = document.createElement("p");
+  likeCount.classList.add("comments__likecount");
+
+  const commentDelete = document.createElement("button");
+  commentDelete.classList.add("comments__delete");
+
+  const likeGroup=document.createElement("div")
+  likeGroup.classList.add("comments__likegroup")
+
+  const deleteIcon = document.createElement("img");
+  deleteIcon.classList.add("comments__delete__icon");
+
+  likeGroup.appendChild(commentLike);
+  commentSectionTop.appendChild(commentDelete);
+  likeGroup.appendChild(likeCount);
+  commentSectionTop.appendChild(likeGroup);
+
+  commentLike.appendChild(likeIcon);
+  commentDelete.appendChild(deleteIcon);
+  
+
+  likeIcon.setAttribute("src", "./assets/icons/icon-like.svg");
+  deleteIcon.setAttribute("src", "./assets/icons/icon-delete.svg");
+
+
   let dateUpdate = new Date(comment.timestamp).toLocaleDateString();
 
   commentName.textContent = comment.name;
   commentDate.textContent = dateUpdate;
   commentText.textContent = comment.comment;
+  likeCount.textContent = comment.likes;
+
+
+   /////////////// like button functionality
+
+  let commentID = comment.id;
+
+  const likeButtonSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .put(
+        `https://project-1-api.herokuapp.com/comments/${commentID}/like?api_key=64e600a2-dc89-422e-bd7a-a1fd3d78c44c`
+      )
+      .then((result) => {
+        getComments();
+      });
+  };
+  commentLike.addEventListener("click", likeButtonSubmit);
+
+
+  const deleteButtonSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .delete(
+        `https://project-1-api.herokuapp.com/comments/${commentID}?api_key=64e600a2-dc89-422e-bd7a-a1fd3d78c44c`
+      )
+      .then((result) => {
+        getComments();
+      });
+  };
+  commentDelete.addEventListener("click", deleteButtonSubmit);
 
   return article;
 }
@@ -80,8 +140,6 @@ const formSubmit = (event) => {
     return false;
   }
 
-
-
   // Sending a POST request to the api to create a new comment
   axios
     .post(
@@ -101,14 +159,11 @@ const formSubmit = (event) => {
       // commentRender(); // this function now needs the api data to work
 
       // This function will do another GET request, with the new comment and
-      // executes commentRender inside of it, with the API data 
+      // executes commentRender inside of it, with the API data
       getComments();
       form.reset();
     });
-
-  
 };
-
 
 form.addEventListener("submit", formSubmit);
 
@@ -125,13 +180,10 @@ const commentRender = (commentsArray) => {
 
   // e.g of both: commentsArray.sort((a, b) => ...).forEach(() => ...)
 
-// using the parameter
-commentsArray.forEach((comment,i)=>{
-  const commentCard = commentCreator(comment);
+  // using the parameter
+  commentsArray.forEach((comment, i) => {
+    const commentCard = commentCreator(comment);
 
     commentStore.prepend(commentCard);
-})
-  
+  });
 };
-
-
