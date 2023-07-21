@@ -23,7 +23,6 @@ body {
   font-weight: normal;
 }
 
-/*//////////GLOBAL////////////////////////*/
 html {
   font-size: 62.5%;
 }
@@ -575,12 +574,16 @@ body a {
   border: none;
   background-color: white;
   order: 1;
+  border-radius: 0.5rem;
 }
 @media screen and (min-width: 768px) {
   .comments__like {
     width: 1.5rem;
     height: 1.5rem;
   }
+}
+.comments__like:hover {
+  background-color: #e1e1e1;
 }
 .comments__like__icon {
   width: 1.3rem;
@@ -599,12 +602,16 @@ body a {
   border: none;
   background-color: white;
   order: 2;
+  border-radius: 0.5rem;
 }
 @media screen and (min-width: 768px) {
   .comments__delete {
     width: 1.5rem;
     height: 1.5rem;
   }
+}
+.comments__delete:hover {
+  background-color: #e1e1e1;
 }
 .comments__delete__icon {
   width: 1.3rem;

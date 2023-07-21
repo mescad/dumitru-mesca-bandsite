@@ -1,24 +1,7 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
 @use "./partials/typography";
-/*//////////GLOBAL////////////////////////*/
-
-html {
-  font-size: 62.5%;
-}
-body {
-  font-size: 1.6rem;
-  margin: 0;
-  & a {
-    text-decoration: none;
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@use "./partials/resets" as *;
 
 /*/////////////////////////NAVBAR///////////////////////*/
 
@@ -84,7 +67,6 @@ body {
     margin-bottom: 0;
     width: 100%;
     margin-top: 0;
-    
 
     @include tablet {
       width: auto;
@@ -93,7 +75,7 @@ body {
       gap: 3rem;
       margin-top: 3rem;
     }
-    @include desktop{
+    @include desktop {
       margin-top: 0rem;
     }
   }
@@ -139,7 +121,6 @@ body {
       }
       @include desktop {
         padding-bottom: 4rem;
-        
       }
     }
 
@@ -228,8 +209,6 @@ body {
       margin-top: 5rem;
       margin-bottom: 2rem;
     }
-
-   
   }
 
   &__titlewrap {

@@ -1,24 +1,7 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
 @use "./partials/typography";
-/*//////////GLOBAL////////////////////////*/
-
-html {
-  font-size: 62.5%;
-}
-body {
-  font-size: 1.6rem;
-  margin: 0;
-  & a {
-    text-decoration: none;
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@use "./partials/resets" as *;
 
 /*/////////////////////////NAVBAR///////////////////////*/
 
@@ -566,68 +549,74 @@ body {
     justify-content: space-between;
   }
 
-  &__like{
+  &__like {
     width: 1.3rem;
     height: 1.3rem;
     padding: 0;
     border: none;
     background-color: white;
     order: 1;
-    @include tablet{
+    border-radius: 0.5rem;
+    @include tablet {
       width: 1.5rem;
       height: 1.5rem;
     }
+    &:hover {
+      background-color: $secondary-selected;
+    }
 
-    &__icon{
+    &__icon {
       width: 1.3rem;
       height: 1.3rem;
-      @include tablet{
+      @include tablet {
         width: 1.5rem;
         height: 1.5rem;
       }
     }
   }
 
-  &__delete{
+  &__delete {
     width: 1.3rem;
     height: 1.3rem;
     padding: 0;
     border: none;
     background-color: white;
     order: 2;
-    @include tablet{
+    border-radius: 0.5rem;
+
+    @include tablet {
       width: 1.5rem;
       height: 1.5rem;
     }
 
-    &__icon{
+    &:hover {
+      background-color: $secondary-selected;
+    }
+
+    &__icon {
       width: 1.3rem;
       height: 1.3rem;
-      @include tablet{
+      @include tablet {
         width: 1.5rem;
         height: 1.5rem;
       }
     }
   }
 
-  &__likecount{
+  &__likecount {
     margin: 0;
     order: 1;
     font-size: 1.3rem;
-    @include tablet{
+    @include tablet {
       font-size: 1.5rem;
     }
-    
-    
   }
 
-  &__likegroup{
+  &__likegroup {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
   }
-
-
 
   &__name {
     font-size: 1.3rem;
@@ -641,10 +630,9 @@ body {
     padding: 0;
     margin: 0;
     order: 2;
-    @include tablet{
+    @include tablet {
       order: 3;
     }
-    
 
     font-weight: 300;
     color: $primary-dark;
