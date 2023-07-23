@@ -154,10 +154,6 @@ const formSubmit = (event) => {
       // and now we need to update the DOM with the new comment
       console.log(result);
 
-      // OLD WAY: push to a variable in our code - we now have a API for the data
-      //commentList.push(newComment);
-      // commentRender(); // this function now needs the api data to work
-
       // This function will do another GET request, with the new comment and
       // executes commentRender inside of it, with the API data
       getComments();
@@ -174,11 +170,7 @@ const commentRender = (commentsArray) => {
   const commentStore = document.querySelector(".comments");
   commentStore.innerHTML = "";
 
-  // 1. maybe use a commentsArray.forEach() instead of a for loop
 
-  // 2. instead of prepend, we could .sort() thecommentsArray by timestamp (desc)
-
-  // e.g of both: commentsArray.sort((a, b) => ...).forEach(() => ...)
 
   // using the parameter
   commentsArray.forEach((comment, i) => {
